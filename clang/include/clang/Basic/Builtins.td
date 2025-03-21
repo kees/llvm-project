@@ -964,6 +964,12 @@ def IsConstantEvaluated : LangBuiltin<"CXX_LANG"> {
   let Prototype = "bool()";
 }
 
+def IsLValue : Builtin {
+  let Spellings = ["__builtin_is_lvalue"];
+  let Attributes = [NoThrow, CustomTypeChecking, UnevaluatedArguments, Constexpr];
+  let Prototype = "bool(...)";
+}
+
 def IsWithinLifetime : LangBuiltin<"CXX_LANG"> {
   let Spellings = ["__builtin_is_within_lifetime"];
   let Attributes = [NoThrow, CustomTypeChecking, Consteval];
